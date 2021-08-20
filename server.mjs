@@ -8,5 +8,3 @@ app
     console.log(`Server running on port: ${port}`);
   })
   .on("error", (e) => console.error(e));
-
-process.on("SIGTERM", () => app.close());
