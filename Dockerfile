@@ -3,7 +3,7 @@ FROM node:14-alpine
 # setting working directory in the container
 WORKDIR /home/node/app
 
-COPY package*.json .
+COPY package*.json ./
 
 # installing the dependencies into the container
 RUN npm install
