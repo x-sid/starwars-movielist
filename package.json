@@ -4,8 +4,10 @@
   "description": "",
   "main": "server.mjs",
   "scripts": {
-    "start": "nodemon server.mjs",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "npm run migrate && node server.mjs",
+    "migrate": "node_modules/.bin/sequelize db:migrate",
+    "start_dev": "nodemon server.mjs",
+    "test": ""
   },
   "keywords": [],
   "author": "",

@@ -1,0 +1,18 @@
+FROM node:10-alpine
+
+# create user in the docker image
+USER node
+
+# setting working directory in the container
+WORKDIR /home/app
+
+COPY . .
+
+# installing the dependencies into the container
+RUN npm install
+
+# container exposed network port number
+EXPOSE 4000
+
+# command to run within the container
+CMD [ "npm", "start" ]
