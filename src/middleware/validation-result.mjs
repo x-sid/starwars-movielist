@@ -7,7 +7,7 @@ const result = (req, res, next) => {
   });
 
   if (errors.length) {
-    return new BadRequestResponse(errors);
+    return new BadRequestResponse(errors).send(res);
   }
   return next();
 };
