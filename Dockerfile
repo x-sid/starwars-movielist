@@ -1,18 +1,15 @@
 FROM node:14-alpine
 
-# create user in the docker image
-USER node
-
-# Creating a new directory for app files and setting path in the container
-RUN mkdir -p /home/node/app && chown -R 777 node:node /home/node/app
-
 # setting working directory in the container
 WORKDIR /home/node/app
 
-COPY package*.json ./
+COPY package*.json .
 
 # installing the dependencies into the container
 RUN npm install
+
+# create user in the docker image
+USER node
 
 COPY . .
 
