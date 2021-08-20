@@ -41,3 +41,4 @@ const addCommentToMovie = async (req) => {
 };
 
 export { fetchMovieList, addCommentToMovie };
+
