@@ -9,4 +9,4 @@ app
   })
   .on("error", (e) => console.error(e));
 
-process.on("SIGTERM", () => server.close());
+process.on("SIGTERM", () => app.close());
