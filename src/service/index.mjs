@@ -14,7 +14,8 @@ const fetchMovieList = async () => {
         "commentCount",
       ],
     ],
-    group: ["movie.id", "comments.id"],
+    group: ["movie.id"],
+    order: [["id", "DESC"]],
     include: [{ model: db.comment, as: "comments", attributes: [] }],
   });
 
@@ -34,9 +35,9 @@ const fetchMovieList = async () => {
 };
 
 const addCommentToMovie = async (req) => {
- const { movie_id: movieId } = req.params;
- const { comment } = req.body;
- await db.comment.create({ movieId, comment });
+  const { movie_id: movieId } = req.params;
+  const { comment } = req.body;
+  await db.comment.create({ movieId, comment });
 };
 
 export { fetchMovieList, addCommentToMovie };

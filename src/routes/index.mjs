@@ -43,7 +43,7 @@ routes.get(
   "/movies/:movie_id/comments",
   asyncHandler(async (req, res) => {
     const { movie_id: movieId } = req.params;
-    const movieComments = await db.comment.findAll({ where: { movieId } });
+    const movieComments = await db.comment.findAll({ where: { movieId }, order: [["id", "DESC"]], });
     if (movieComments.length) {
       return new SuccessResponse("Success", movieComments).send(res);
     }
