@@ -19,7 +19,7 @@ app.use(cors());
 
 app.use(`${baseUrl}`, routes);
 app.use("/", (req, res) => {
-  res.send("Welcome to starwars movie api is working");
+  res.send("Welcome to starwars movie api");
 });
 
 // catch 404 and forward to error handler
