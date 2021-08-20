@@ -7,6 +7,8 @@ import {
 } from "../core/api-response.mjs";
 import { asyncHandler } from "../helper.mjs";
 import { fetchMovieList, addCommentToMovie } from "../service/index.mjs";
+import validate from "../middleware/validator.mjs"
+import validationResult from "../middleware/validation-result.mjs";
 
 const routes = Router();
 
@@ -33,6 +35,8 @@ routes.get(
 
 routes.post(
   "/movies/:movie_id/comments",
+  validate.comment,
+  validationResult,
   asyncHandler(async (req, res) => {
     await addCommentToMovie(req);
     return new SuccessMsgResponse("Success").send(res);
@@ -51,4 +55,4 @@ routes.get(
   })
 );
 
-export default routes;
+export default routes;  
