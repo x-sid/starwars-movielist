@@ -18,6 +18,9 @@ app.use(express.json());
 app.use(cors());
 
 app.use(`${baseUrl}`, routes);
+app.use("/", (req, res) => {
+  res.send("Welcome to starwars movie api");
+});
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => next(new NotFoundError()));
@@ -28,7 +31,6 @@ app.use((err, req, res, next) => {
   }
 
   if (process.env.NODE_ENV === "development") {
-    console.log(err);
     return res.status(500).send(err.message);
   }
 
