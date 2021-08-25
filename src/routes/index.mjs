@@ -15,9 +15,8 @@ const routes = Router();
 routes.get(
   "/movies",
   asyncHandler(async (req, res) => {
-    let movieList;
-    movieList = await fetchMovieList();
-    new SuccessResponse("Success", movieList).send(res);
+   let movieList = await fetchMovieList();
+   new SuccessResponse("Success", movieList).send(res);
   })
 );
 
